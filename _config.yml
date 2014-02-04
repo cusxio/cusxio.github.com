@@ -1,0 +1,13 @@
+title:            uei shen. chan || @cusxio
+url:              cusxio.github.io/blog
+permalink:        pretty
+pygments:         true
+markdown:         rdiscount
+rdiscount:
+  extensions:     [smart]
+google_analytics: 
+timezone:         Australia/Perth
+paginate: 5
+links: 
+  - name:         About
+    url:          /about
