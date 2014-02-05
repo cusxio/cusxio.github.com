@@ -7,11 +7,7 @@ title: <img src="https://1.gravatar.com/avatar/3aeb5655cf56bb8cc5583da71c757dc4?
 
 <br />
 
-<<<<<<< HEAD
-An [aspiring human being](http://norvig.com/21-days.html) progressing to [what he aspires](http://www.youtube.com/watch?v=H14bBuluwB8) to be~!
-=======
-an [Aspiring human being](http://norvig.com/21-days.html) progressing to be [what he aspires](http://www.youtube.com/watch?v=H14bBuluwB8) to be~!
->>>>>>> ca6109b4e9f5ce6b08b60b7e9f292388e210fd62
+An [aspiring human being](http://norvig.com/21-days.html) progressing to be [what he aspires](http://www.youtube.com/watch?v=H14bBuluwB8) to be~!
 
 <br />
 
