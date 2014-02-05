@@ -7,6 +7,7 @@ cover:
 
 **I told** myself, If I am able to solve my OpenSSL error in ``rvm requirements``, I will post t he solution up as the **first blog post** on my [upcoming blog](http://iam.cusx.io)
 
+
 ```
 oox:~ cusxio$ rvm requirements
 Checking requirements for osx.
