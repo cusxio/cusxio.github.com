@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 
+date: 2014-02-05 19:19
 title: Committing my First Blog Post
 cover: 
 ---
