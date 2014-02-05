@@ -9,12 +9,12 @@ cover:
 
 	oox:~ cusxio$ rvm requirements
 	Checking requirements for osx.
-	dyld: Library not loaded: @@HOMEBREW_CELLAR@@/openssl/1.0.1f/lib/libssl.	1.0.0.dylib
+	dyld: Library not loaded: @@HOMEBREW_CELLAR@@/openssl/1.0.1f/		lib/libssl.	1.0.0.dylib
   	Referenced from: /usr/local/opt/openssl/bin/openssl
   	Reason: image not found
-	Failed reading certificates path for '/usr/local/opt/openssl/bin/openssl' with return code: 	().
-	RVM autolibs is now configured with mode '2' => 'check and stop if missing',
-	please run `rvm autolibs enable` to let RVM do its job or run and read `rvm autolibs 	[help]`
+	Failed reading certificates path for '/usr/local/opt/openssl/		bin/openssl' with return code: 	().
+	RVM autolibs is now configured with mode '2' => 'check and 			stop if missing',
+	please run `rvm autolibs enable` to let RVM do its job or run 		and read `rvm autolibs 	[help]`
 	or visit https://rvm.io/rvm/autolibs for more information.
 	Requirements installation failed with status: 133.
 
