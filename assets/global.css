@@ -101,7 +101,7 @@ a {
   color: #202020; }
 
 code {
-  white-space: nowrap;
+  white-space: pre-wrap;
   color: #000; }
 
 pre code {
