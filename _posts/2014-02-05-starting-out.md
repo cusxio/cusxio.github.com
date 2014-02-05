@@ -31,19 +31,27 @@ ___
 
 After installing command line tools, I realised that it is not located ``/Applications/Xcode.app/Contents/Developer/Tools``, the ~supposed to be~ directory.
 
-1) Therefore, I quickly ran ``sudo xcode-select -switch /Library/Developer/CommandLineTools` in Terminal. (This changes the directory for CLT)
+1) Therefore, I quickly ran ``sudo xcode-select -switch /Library/Developer/CommandLineTools` in Terminal.
+(This changes the directory for CLT)
+
 
 2) I copied the ``install_name_tool`` in ``/Library/Developer/CommandLineTools/usr/bin`` and **paste** it in ``/usr/bin`` replacing the ***old and existing*** ``install_name_tool``
 
+
 3) I deleted rvm, deleted brew
+
 
 4) Restart.
 
+
 5) I re-installed brew, ran ``brew doctor`` fixed some of the outputs to get the message ``Your system is ready to brew.``
+
 
 6) Reinstalled rvm with auto-dotfiles ``curl -L https://get.rvm.io | bash -s stable --auto-dotfiles``
 
+
 7) Ran ``rvm requirements`` Everything is working perfectly now. 
+
 
 ___
 
