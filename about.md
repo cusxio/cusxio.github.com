@@ -7,7 +7,7 @@ title: <img src="https://1.gravatar.com/avatar/3aeb5655cf56bb8cc5583da71c757dc4?
 
 <br />
 
-an [Aspiring human being](http://norvig.com/21-days.html) progressing to be [what he aspires](http://www.youtube.com/watch?v=H14bBuluwB8) to be~!
+an [Aspiring human being](http://norvig.com/21-days.html) progressing to [what he aspires](http://www.youtube.com/watch?v=H14bBuluwB8) to be~!
 
 <br />
 
