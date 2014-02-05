@@ -28,7 +28,7 @@ ___
 
 **Solution: Mavericks**
 
-**PS: You need to install Command Line Tools (CLT)**
+***PS: You need to install Command Line Tools (CLT)***
 
 After installing command line tools, I realised that it is not located ``/Applications/Xcode.app/Contents/Developer/Tools``, the ~supposed to be~ directory.
 
