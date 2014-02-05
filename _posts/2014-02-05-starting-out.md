@@ -8,7 +8,7 @@ cover:
 **I told** myself, If I am able to solve my OpenSSL error in ``rvm requirements``, I will post t he solution up as the **first blog post** on my [upcoming blog](http://iam.cusx.io)
 
 
-```
+```bash
 oox:~ cusxio$ rvm requirements
 Checking requirements for osx.
 dyld: Library not loaded: @@HOMEBREW_CELLAR@@/openssl/1.0.1f/lib/libssl.1.0.0.dylib
