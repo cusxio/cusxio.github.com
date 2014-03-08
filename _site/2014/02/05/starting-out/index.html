@@ -18,7 +18,7 @@
 <meta content="http://muan.co/images/og.png" property="og:image" />
 
   <meta content='http://iam.cusx.io/2014/02/05/starting-out/' property='og:url' />
-  <meta content="**I told** myself, If I am able to solve my OpenSSL error in ``rvm requirements``, I will post t he solution up as th..." property='og:description' />
+  <meta content="This OpenSSL error has been annoying me for two weeks, and I'm glad to say that with the help from GitHub and Stackov..." property='og:description' />
   <meta content="article" property="og:type" />
 
 <!-- - -->
@@ -53,7 +53,7 @@
           <article>
             <div class="mark"></div>
             <header>
-              <h2 class="post-title">rvm requirements/ brew doctor</h2>
+              <h2 class="post-title">ruby&brew conflict</h2>
               <small class="datetime muted">
                 
                   05 Feb 2014 - 
@@ -61,7 +61,9 @@
                 by <a href="/about">cusxio</a>
               </small>
             </header>
-            <p><strong>I told</strong> myself, If I am able to solve my OpenSSL error in <code>rvm requirements</code>, I will post t he solution up as the <strong>first blog post</strong> on my <a href="http://iam.cusx.io">upcoming blog</a></p>
+            <p>This OpenSSL error has been annoying me for two weeks, and I&rsquo;m glad to say that with the help from GitHub and Stackoverflow, I&rsquo;ve managed the troubleshoot it.</p>
+
+<p>Here is the error:</p>
 
 <pre><code class="bash">oox:~ cusxio$ rvm requirements
 Checking requirements for osx.
@@ -75,36 +77,34 @@ or visit https://rvm.io/rvm/autolibs for more information.
 Requirements installation failed with status: 133.
 </code></pre>
 
-<p>This is the error, persistently bugging me over the past few days. If I do a quick <code>brew link openssl --forced</code> the error will be solved, however running a quick <code>brew doctor</code> will show that home-brew is not happy with the link.</p>
+<p>This is the error, persistently bugging me over the past few days. If I do a quick <code>brew link openssl --forced</code> the error will be solved, however running a quick <code>brew doctor</code> will show that home-brew is not happy with the openSSL link.</p>
 
-<p>I filed for a bug in <em>rvm support</em> on GitHub, and was told that this is a homebrew bug. So I filled for <a href="https://github.com/Homebrew/homebrew/issues/26367">another bug</a> at homebrew. I was quickly told by the mods that the issue has something to do with <code>install_name_tools</code> being out-of-dated, perhaps being overwritten by some other apps during installation such as <strong>RailsInstaller</strong>. After much tinkering around <code>install_name_tools</code> I found a solution. I posted the whole solution on <a href="http://github.com">GitHub</a>, but for the sake of this post, I&rsquo;ll copy the whole thing here.</p>
+<p>I filled for a bug in <em>rvm support</em> on GitHub, and was told that this is a homebrew bug. So I filled for <a href="https://github.com/Homebrew/homebrew/issues/26367">another bug</a> at homebrew. I was quickly told by the mods that the issue has something to do with <code>install_name_tools</code> being out-of-date, perhaps being overwritten by some other apps during installation such as <em>RailsInstaller</em>. After much tinkering around <code>install_name_tools</code> I found a solution. I posted the whole solution on <a href="http://github.com">GitHub</a>, but for the sake of this post, I&rsquo;ll copy the whole thing here.</p>
 
 <hr />
 
-<p><strong>Solution: Mavericks</strong></p>
-
-<p><strong><em>PS: You need to install Command Line Tools (CLT)</em></strong></p>
+<p><strong>Solution for Mavericks (you need to install CommandLineTools (CLT)</strong></p>
 
 <p>After installing command line tools, I realised that it is not located <code>/Applications/Xcode.app/Contents/Developer/Tools</code>, the ~supposed to be~ directory.</p>
 
-<p>1) Therefore, I quickly ran <code>`sudo xcode-select -switch /Library/Developer/CommandLineTools</code> in Terminal.
+<p><strong>1)</strong> Therefore, I quickly ran <code>`sudo xcode-select -switch /Library/Developer/CommandLineTools</code> in Terminal.
 (This changes the directory for CLT)</p>
 
-<p>2) I copied the <code>install_name_tool</code> in <code>/Library/Developer/CommandLineTools/usr/bin</code> and <strong>paste</strong> it in <code>/usr/bin</code> replacing the <strong><em>old and existing</em></strong> <code>install_name_tool</code></p>
+<p><strong>2)</strong> I copied the <code>install_name_tool</code> in <code>/Library/Developer/CommandLineTools/usr/bin</code> and <strong>paste</strong> it in <code>/usr/bin</code> replacing the <strong><em>old and existing</em></strong> <code>install_name_tool</code></p>
 
-<p>3) I deleted rvm, deleted brew</p>
+<p><strong>3)</strong> I deleted rvm, deleted brew</p>
 
-<p>4) Restart.</p>
+<p><strong>4)</strong> Restart.</p>
 
-<p>5) I re-installed brew, ran <code>brew doctor</code> fixed some of the outputs to get the message <code>Your system is ready to brew.</code></p>
+<p><strong>5)</strong> I re-installed brew, ran <code>brew doctor</code> fixed some of the outputs to get the message <code>Your system is ready to brew.</code></p>
 
-<p>6) Reinstalled rvm with auto-dotfiles <code>curl -L https://get.rvm.io | bash -s stable --auto-dotfiles</code></p>
+<p><strong>6)</strong> Reinstalled rvm with auto-dotfiles <code>curl -L https://get.rvm.io | bash -s stable --auto-dotfiles</code></p>
 
-<p>7) Ran <code>rvm requirements</code> Everything is working perfectly now.</p>
+<p><strong>7)</strong> Ran <code>rvm requirements</code> Everything is working perfectly now.</p>
 
 <hr />
 
-<p>Feel free to <a href="cusxio@gmail.com">email me</a> if you need a hand !</p>
+<p>Feel free to email me at <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#99;&#117;&#x73;&#x78;&#x69;&#x6f;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#99;&#117;&#115;&#x78;&#x69;&#x6f;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a> if you need a hand !</p>
 
             <footer class="signoff">
   <p>
