@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uei-Shen Chan - No Label</title>
+    <description></description>
+    <link>http://iam.cusx.io</link>
+    <atom:link href="http://iam.cusx.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>rvm requirements/ brew doctor</title>
+        <description>&lt;p&gt;&lt;strong&gt;I told&lt;/strong&gt; myself, If I am able to solve my OpenSSL error in &lt;code&gt;rvm requirements&lt;/code&gt;, I will post t he solution up as the &lt;strong&gt;first blog post&lt;/strong&gt; on my &lt;a href=&quot;http://iam.cusx.io&quot;&gt;upcoming blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;oox:~ cusxio$ rvm requirements
+Checking requirements for osx.
+dyld: Library not loaded: @@HOMEBREW_CELLAR@@/openssl/1.0.1f/lib/libssl.1.0.0.dylib
+  Referenced from: /usr/local/opt/openssl/bin/openssl
+  Reason: image not found
+Failed reading certificates path for &#39;/usr/local/opt/openssl/bin/openssl&#39; with return code: ().
+RVM autolibs is now configured with mode &#39;2&#39; =&amp;gt; &#39;check and stop if missing&#39;,
+please run `rvm autolibs enable` to let RVM do its job or run and read `rvm autolibs [help]`
+or visit https://rvm.io/rvm/autolibs for more information.
+Requirements installation failed with status: 133.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the error, persistently bugging me over the past few days. If I do a quick &lt;code&gt;brew link openssl --forced&lt;/code&gt; the error will be solved, however running a quick &lt;code&gt;brew doctor&lt;/code&gt; will show that home-brew is not happy with the link.&lt;/p&gt;
+
+&lt;p&gt;I filed for a bug in &lt;em&gt;rvm support&lt;/em&gt; on GitHub, and was told that this is a homebrew bug. So I filled for &lt;a href=&quot;https://github.com/Homebrew/homebrew/issues/26367&quot;&gt;another bug&lt;/a&gt; at homebrew. I was quickly told by the mods that the issue has something to do with &lt;code&gt;install_name_tools&lt;/code&gt; being out-of-dated, perhaps being overwritten by some other apps during installation such as &lt;strong&gt;RailsInstaller&lt;/strong&gt;. After much tinkering around &lt;code&gt;install_name_tools&lt;/code&gt; I found a solution. I posted the whole solution on &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt;, but for the sake of this post, I&amp;rsquo;ll copy the whole thing here.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution: Mavericks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;PS: You need to install Command Line Tools (CLT)&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After installing command line tools, I realised that it is not located &lt;code&gt;/Applications/Xcode.app/Contents/Developer/Tools&lt;/code&gt;, the ~supposed to be~ directory.&lt;/p&gt;
+
+&lt;p&gt;1) Therefore, I quickly ran &lt;code&gt;`sudo xcode-select -switch /Library/Developer/CommandLineTools&lt;/code&gt; in Terminal.
+(This changes the directory for CLT)&lt;/p&gt;
+
+&lt;p&gt;2) I copied the &lt;code&gt;install_name_tool&lt;/code&gt; in &lt;code&gt;/Library/Developer/CommandLineTools/usr/bin&lt;/code&gt; and &lt;strong&gt;paste&lt;/strong&gt; it in &lt;code&gt;/usr/bin&lt;/code&gt; replacing the &lt;strong&gt;&lt;em&gt;old and existing&lt;/em&gt;&lt;/strong&gt; &lt;code&gt;install_name_tool&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;3) I deleted rvm, deleted brew&lt;/p&gt;
+
+&lt;p&gt;4) Restart.&lt;/p&gt;
+
+&lt;p&gt;5) I re-installed brew, ran &lt;code&gt;brew doctor&lt;/code&gt; fixed some of the outputs to get the message &lt;code&gt;Your system is ready to brew.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;6) Reinstalled rvm with auto-dotfiles &lt;code&gt;curl -L https://get.rvm.io | bash -s stable --auto-dotfiles&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;7) Ran &lt;code&gt;rvm requirements&lt;/code&gt; Everything is working perfectly now.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Feel free to &lt;a href=&quot;cusxio@gmail.com&quot;&gt;email me&lt;/a&gt; if you need a hand !&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Feb 2014 15:18:00 +0800</pubDate>
+        <link>http://iam.cusx.io/2014/02/05/starting-out/</link>
+        <guid isPermaLink="true">http://iam.cusx.io/2014/02/05/starting-out/</guid>
+      </item>
+    
+  </channel>
+</rss>

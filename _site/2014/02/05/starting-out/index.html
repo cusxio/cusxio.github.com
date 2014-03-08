@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <meta content='uei shen. chan' property='og:title' />
+    <title>uei shen. chan</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='/assets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/assets/global.css' rel='stylesheet' type='text/css' />
+<link href='/assets/style.css' rel='stylesheet' type='text/css' />
+<link href='/assets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/assets/jquery.js' type='text/javascript'></script>
+<script src='/assets/pd.js' type='text/javascript'></script>
+<script src='/assets/stuff.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+
+  <meta content='http://iam.cusx.io/2014/02/05/starting-out/' property='og:url' />
+  <meta content="**I told** myself, If I am able to solve my OpenSSL error in ``rvm requirements``, I will post t he solution up as th..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="site-header">
+  <a href="/" class="site-title square">
+    /blog/
+  </a>
+  <a href="/about" class="site-title square">
+    /about/
+  </a>
+</header>
+
+
+        <section class="content">
+          <article>
+            <div class="mark"></div>
+            <header>
+              <h2 class="post-title">rvm requirements/ brew doctor</h2>
+              <small class="datetime muted">
+                
+                  05 Feb 2014 - 
+                
+                by <a href="/about">cusxio</a>
+              </small>
+            </header>
+            <p><strong>I told</strong> myself, If I am able to solve my OpenSSL error in <code>rvm requirements</code>, I will post t he solution up as the <strong>first blog post</strong> on my <a href="http://iam.cusx.io">upcoming blog</a></p>
+
+<pre><code class="bash">oox:~ cusxio$ rvm requirements
+Checking requirements for osx.
+dyld: Library not loaded: @@HOMEBREW_CELLAR@@/openssl/1.0.1f/lib/libssl.1.0.0.dylib
+  Referenced from: /usr/local/opt/openssl/bin/openssl
+  Reason: image not found
+Failed reading certificates path for '/usr/local/opt/openssl/bin/openssl' with return code: ().
+RVM autolibs is now configured with mode '2' =&gt; 'check and stop if missing',
+please run `rvm autolibs enable` to let RVM do its job or run and read `rvm autolibs [help]`
+or visit https://rvm.io/rvm/autolibs for more information.
+Requirements installation failed with status: 133.
+</code></pre>
+
+<p>This is the error, persistently bugging me over the past few days. If I do a quick <code>brew link openssl --forced</code> the error will be solved, however running a quick <code>brew doctor</code> will show that home-brew is not happy with the link.</p>
+
+<p>I filed for a bug in <em>rvm support</em> on GitHub, and was told that this is a homebrew bug. So I filled for <a href="https://github.com/Homebrew/homebrew/issues/26367">another bug</a> at homebrew. I was quickly told by the mods that the issue has something to do with <code>install_name_tools</code> being out-of-dated, perhaps being overwritten by some other apps during installation such as <strong>RailsInstaller</strong>. After much tinkering around <code>install_name_tools</code> I found a solution. I posted the whole solution on <a href="http://github.com">GitHub</a>, but for the sake of this post, I&rsquo;ll copy the whole thing here.</p>
+
+<hr />
+
+<p><strong>Solution: Mavericks</strong></p>
+
+<p><strong><em>PS: You need to install Command Line Tools (CLT)</em></strong></p>
+
+<p>After installing command line tools, I realised that it is not located <code>/Applications/Xcode.app/Contents/Developer/Tools</code>, the ~supposed to be~ directory.</p>
+
+<p>1) Therefore, I quickly ran <code>`sudo xcode-select -switch /Library/Developer/CommandLineTools</code> in Terminal.
+(This changes the directory for CLT)</p>
+
+<p>2) I copied the <code>install_name_tool</code> in <code>/Library/Developer/CommandLineTools/usr/bin</code> and <strong>paste</strong> it in <code>/usr/bin</code> replacing the <strong><em>old and existing</em></strong> <code>install_name_tool</code></p>
+
+<p>3) I deleted rvm, deleted brew</p>
+
+<p>4) Restart.</p>
+
+<p>5) I re-installed brew, ran <code>brew doctor</code> fixed some of the outputs to get the message <code>Your system is ready to brew.</code></p>
+
+<p>6) Reinstalled rvm with auto-dotfiles <code>curl -L https://get.rvm.io | bash -s stable --auto-dotfiles</code></p>
+
+<p>7) Ran <code>rvm requirements</code> Everything is working perfectly now.</p>
+
+<hr />
+
+<p>Feel free to <a href="cusxio@gmail.com">email me</a> if you need a hand !</p>
+
+            <footer class="signoff">
+  <p>
+    <b>Til next time,</b>
+<br/>
+    cusxio    <span class="muted">at 15:18</span>
+  </p>
+</footer>
+          </article>
+          
+        </section>
+
+      
+    </div>
+  </body>
+</html>
