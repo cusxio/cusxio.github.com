@@ -1,6 +1,6 @@
 ---
 layout: post
-title: <img src="https://dl.dropboxusercontent.com/s/o4rxlwy4q8rop50/cusx.png" class="avatar" />About 
+title: <img src="http://i.imgur.com/9aUHbT1.jpg" class="avatar" />About 
 ---
 
 **Uei-Shen Chan** <small>(**曾威森**)</small>. 
