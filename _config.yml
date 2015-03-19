@@ -1,7 +1,7 @@
 title:            Uei-Shen Chan - No Label
 url:              http://iam.cusx.io
 permalink:        pretty
-pygments:         true
+highlighter:      pygments
 markdown:         rdiscount
 rdiscount:
   extensions:     [smart]

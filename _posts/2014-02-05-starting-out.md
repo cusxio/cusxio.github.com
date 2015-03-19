@@ -2,7 +2,7 @@
 layout: post
 date: 2014-02-05 3:18 PM
 title: ruby&brew conflict
-cover: http://blog.jeffdouglas.com/wp-content/uploads/2010/07/terminal-error.png
+cover: http://i.imgur.com/SDd9yJY.png
 ---
 
 This OpenSSL error has been annoying me for two weeks, and I'm glad to say that with the help from GitHub and Stackoverflow, I've managed the troubleshoot it.
