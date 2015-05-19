@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-05-19 9:15 PM
+date: 2015-05-19 20:22 PM
 title: The Bound: Part 1
 cover: http://i.imgur.com/mt1xuUy.jpg
 ---
