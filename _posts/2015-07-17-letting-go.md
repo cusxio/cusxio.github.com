@@ -4,6 +4,8 @@ date: 2015-07-17 23:32 PM
 title: Letting Go
 cover: http://kimberlypackard.com/wp-content/uploads/2014/06/letting-go.jpg
 ---
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DmkNbMksREc" frameborder="0" allowfullscreen></iframe>
+
 
 Reminiscing is something that I have been doing for far too long, and it needs to stop now.
 
